@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <img id="midaLogo" src="Graphics/MIDA.svg" alt="MIDA Logo" style="height: 128px; width: auto; display: block; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.10));" />
+            <button id="settingsBtn" title="Settings"><svg width="22" height="22"><use href="#settings"/></svg></button>
+        </header>
+        <main id="chatArea"></main>
+        <form id="chatForm">
+            <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" required />
+            <input type="file" id="fileInput" style="display:none;" />
+            <button type="button" id="fileBtn" title="Upload file"><svg width="22" height="22"><use href="icons.svg#clip"/></svg></button>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeSettings">&times;</span>
+            <h2>Settings</h2>
+            <label>Endpoint URL
+                <input type="text" id="endpointInput" placeholder="https://api.example.com/v1/chat" />
+            </label>
+            <label>Model ID
+                <input type="text" id="modelInput" placeholder="model-id" />
+            </label>
+            <button id="saveSettings">Save</button>
+        </div>
+    </div>
+    <div id="filePreview" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeFilePreview">&times;</span>
+            <h2>File Preview</h2>
+            <div id="fileDetails"></div>
+            <button id="sendFile">Send File</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Inline SVG sprite for icons to ensure visibility -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <symbol id="settings" viewBox="0 0 24 24">
+        <path d="M19.14,12.94a7.07,7.07,0,0,0,.05-1,7.07,7.07,0,0,0-.05-1l2.11-1.65a.5.5,0,0,0,.12-.64l-2-3.46a.5.5,0,0,0-.61-.22l-2.49,1a7,7,0,0,0-1.73-1l-.38-2.65A.5.5,0,0,0,13,2H11a.5.5,0,0,0-.5.42l-.38,2.65a7,7,0,0,0-1.73,1l-2.49-1a.5.5,0,0,0-.61.22l-2,3.46a.5.5,0,0,0,.12.64L4.86,10a7.07,7.07,0,0,0-.05,1,7.07,7.07,0,0,0,.05,1l-2.11,1.65a.5.5,0,0,0-.12.64l2,3.46a.5.5,0,0,0,.61.22l2.49-1a7,7,0,0,0,1.73,1l.38,2.65A.5.5,0,0,0,11,22h2a.5.5,0,0,0,.5-.42l.38-2.65a7,7,0,0,0,1.73-1l2.49,1a.5.5,0,0,0,.61-.22l2-3.46a.5.5,0,0,0-.12-.64ZM12,15.5A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+      </symbol>
+      <symbol id="clip" viewBox="0 0 24 24">
+        <path d="M16.5 6.5v7a4.5 4.5 0 01-9 0v-7a3.5 3.5 0 017 0v7a2.5 2.5 0 01-5 0v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </svg>
+</body>
+</html>
